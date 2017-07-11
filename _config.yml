@@ -1,8 +1,13 @@
 # Site settings
 title: "Ryan's Technology Corner"
 description: "My personal blogs about technology"
-url: "https://rwibawa.github.io/jekyll-uno/"
+<<<<<<< HEAD
+url: "https://rwibawa.github.io/jekyll-uno"
 baseurl: ""
+=======
+url: "https://rwibawa.github.io/jekyll-uno"
+baseurl: "/jekyll-uno/"
+>>>>>>> 31f023c35702fd29fa8aa371ab04fd06522b3604
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
 
