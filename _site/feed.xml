@@ -3,10 +3,10 @@
   <channel>
     <title>Ryan's Technology Corner</title>
     <description>My personal blogs about technology</description>
-    <link>http://0.0.0.0:4000/jekyll-uno//</link>
-    <atom:link href="http://0.0.0.0:4000/jekyll-uno//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 10 Jul 2017 22:59:22 -0700</pubDate>
-    <lastBuildDate>Mon, 10 Jul 2017 22:59:22 -0700</lastBuildDate>
+    <link>http://0.0.0.0:4000//</link>
+    <atom:link href="http://0.0.0.0:4000//feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 11 Jul 2017 01:14:52 -0700</pubDate>
+    <lastBuildDate>Tue, 11 Jul 2017 01:14:52 -0700</lastBuildDate>
     <generator>Jekyll v3.4.5</generator>
     
       <item>
@@ -27,8 +27,8 @@
 
 </description>
         <pubDate>Mon, 10 Jul 2017 16:50:46 -0700</pubDate>
-        <link>http://0.0.0.0:4000/jekyll-uno//2017/welcome-to-jekyll/</link>
-        <guid isPermaLink="true">http://0.0.0.0:4000/jekyll-uno//2017/welcome-to-jekyll/</guid>
+        <link>http://0.0.0.0:4000//2017/welcome-to-jekyll/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000//2017/welcome-to-jekyll/</guid>
         
         
         <category>jekyll</category>
