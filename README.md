@@ -23,3 +23,8 @@
   $ git commit -m "Initial commit"
   $ git push -u origin master
 ```
+2. Links
+[https://jekyllrb.com/docs/themes/]
+[https://github.com/joshgerdes/jekyll-uno]
+[http://jekyllthemes.org/page5/]
+[https://rubygems.org/search?utf8=%E2%9C%93&query=jekyll-theme]
