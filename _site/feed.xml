@@ -3,11 +3,57 @@
   <channel>
     <title>Ryan's Technology Corner</title>
     <description>My personal blogs about technology</description>
-    <link>http://0.0.0.0:4000//</link>
-    <atom:link href="http://0.0.0.0:4000//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 11 Jul 2017 01:14:52 -0700</pubDate>
-    <lastBuildDate>Tue, 11 Jul 2017 01:14:52 -0700</lastBuildDate>
+    <link>http://localhost:4000//</link>
+    <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Fri, 22 Sep 2017 16:41:38 -0700</pubDate>
+    <lastBuildDate>Fri, 22 Sep 2017 16:41:38 -0700</lastBuildDate>
     <generator>Jekyll v3.4.5</generator>
+    
+      <item>
+        <title>GitLab</title>
+        <description>&lt;p&gt;I found out &lt;a href=&quot;http://github.com&quot;&gt;GitHub&lt;/a&gt; is the best place to host your code repositories. It is a git server with all functional collaboration tools yet fancy. But how about to have it for your own organization?&lt;/p&gt;
+
+&lt;p&gt;In search for a github-like git server, I was stumbled upon &lt;a href=&quot;https://about.gitlab.com/&quot;&gt;GitLab&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 22 Sep 2017 16:34:46 -0700</pubDate>
+        <link>http://localhost:4000//2017/gitlab/</link>
+        <guid isPermaLink="true">http://localhost:4000//2017/gitlab/</guid>
+        
+        <category>git</category>
+        
+        <category>github</category>
+        
+        <category>gitlab</category>
+        
+        <category>source control</category>
+        
+        
+        <category>git</category>
+        
+      </item>
+    
+      <item>
+        <title>Bitcoin and Ethereum</title>
+        <description>&lt;p&gt;The digital currency has bitcoin and ethereum.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 22 Sep 2017 16:10:46 -0700</pubDate>
+        <link>http://localhost:4000//2017/bitcoin-and-ethereum/</link>
+        <guid isPermaLink="true">http://localhost:4000//2017/bitcoin-and-ethereum/</guid>
+        
+        <category>bitcoin</category>
+        
+        <category>ethereum</category>
+        
+        <category>digital currency</category>
+        
+        
+        <category>bitcoin</category>
+        
+        <category>ethereum</category>
+        
+        <category>digital currency</category>
+        
+      </item>
     
       <item>
         <title>Welcome to Jekyll!</title>
@@ -23,17 +69,17 @@
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 10 Jul 2017 16:50:46 -0700</pubDate>
-        <link>http://0.0.0.0:4000//2017/welcome-to-jekyll/</link>
-        <guid isPermaLink="true">http://0.0.0.0:4000//2017/welcome-to-jekyll/</guid>
-        
+        <link>http://localhost:4000//2017/welcome-to-jekyll/</link>
+        <guid isPermaLink="true">http://localhost:4000//2017/welcome-to-jekyll/</guid>
         
         <category>jekyll</category>
         
-        <category>update</category>
+        
+        <category>jekyll</category>
         
       </item>
     
