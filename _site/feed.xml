@@ -5,8 +5,8 @@
     <description>My personal blogs about technology</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 30 Apr 2020 22:00:34 -0700</pubDate>
-    <lastBuildDate>Thu, 30 Apr 2020 22:00:34 -0700</lastBuildDate>
+    <pubDate>Thu, 30 Apr 2020 22:07:11 -0700</pubDate>
+    <lastBuildDate>Thu, 30 Apr 2020 22:07:11 -0700</lastBuildDate>
     <generator>Jekyll v3.4.5</generator>
     
       <item>
@@ -70,7 +70,12 @@ Enter the IP address range &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;e.g., 1
 
 &lt;h3 id=&quot;3-test-it-by-running-nginx-with-2-replicas&quot;&gt;3. Test it by running &lt;code class=&quot;highlighter-rouge&quot;&gt;nginx&lt;/code&gt; with 2 replicas:&lt;/h3&gt;
 &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;microk8s.kubectl run nginx --image nginx --replicas 2
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;microk8s.kubectl expose deployment nginx --port 8090 --target-port 80 --type LoadBalancer --selector&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;nginx --name nginx
+&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;microk8s.kubectl expose deployment nginx &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+--port 8090 --target-port 80 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+--type LoadBalancer &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+--selector&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;nginx &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+--name nginx
+
 &lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;kubectl get svc/nginx
 NAME    TYPE           CLUSTER-IP       EXTERNAL-IP     PORT&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;S&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;          AGE
 nginx   LoadBalancer   10.152.183.245   192.168.1.120   8090:30389/TCP   4s
