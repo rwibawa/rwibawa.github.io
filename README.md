@@ -2,13 +2,19 @@
 
 ## 1. Install Jekyll
 ```bash
+# Clone and build
   $ git clone https://github.com/rwibawa/rwibawa.github.io.git
+  $ cd rwibawa.github.io/
+  $ gem install nokogiri -v '1.8.0' --source 'https://rubygems.org/' -- --use-system-libraries
+  $ bundle install
 
+# Get jekyll
   $ rvm list
   $ rvm gemset list
   $ gem install jekyll
   $ jekyll -v
 
+# Create a new project
   $ jekyll help
   $ jekyll new rwibawa.github.io
   $ cd rwibawa.github.io/

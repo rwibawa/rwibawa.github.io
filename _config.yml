@@ -2,7 +2,9 @@
 title: "Ryan's Technology Corner"
 description: "My personal blogs about technology"
 url: "https://rwibawa.github.io"
-baseurl: "/"
+baseurl: ""
+profilepic: '/images/Ryan_profile04.jpg'
+bkimage: '/images/cover.jpg'
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
 
