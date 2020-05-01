@@ -4,9 +4,9 @@ description: "My personal blogs about technology"
 url: "https://rwibawa.github.io"
 baseurl: ""
 profilepic: '/images/Ryan_profile04.jpg'
-bkimage: '/images/cover.jpg'
+bkimage: '/images/mountains.jpg'
 # google_analytics: 'UA-XXXXXX-X'
-# disqus_shortname: 'your-disqus-name'
+disqus_shortname: 'rwibawa'
 
 author:
   name: "Ryan Wibawa"
