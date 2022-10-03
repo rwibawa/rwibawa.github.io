@@ -1,4 +1,35 @@
 # Ryan's Blog [https://rwibawa.github.io/]
+Ryan's Technology Corner.
+
+## Use docker to run `jekyll`
+```sh
+# Clone and build
+$ git clone https://github.com/rwibawa/rwibawa.github.io.git
+$ cd rwibawa.github.io/
+
+# Get docker image: jekyll:4
+$ docker pull jekyll/jekyll:4
+
+# Build jekyll
+$ export JEKYLL_VERSION=4
+$ rm Gemfile.lock 
+$ docker run --rm --volume="$PWD:/srv/jekyll" -it jekyll/jekyll:$JEKYLL_VERSION jekyll build
+$ bundle add webrick
+$ docker run --name newblog --volume="$PWD:/srv/jekyll" -p 4000:4000 -it jekyll/jekyll:$JEKYLL_VERSION jekyll serve --watch --drafts
+
+$ docker ps -a
+$ docker rmi newblog
+
+# Create new blog
+$ docker run --rm --volume="$PWD:/srv/jekyll" -it jekyll/jekyll:$JEKYLL_VERSION jekyll new .
+
+```
+open [http://localhost:4000](http://localhost:4000).
+
+### References
+* [Running Jekyll in Docker](https://ddewaele.github.io/running-jekyll-in-docker/)
+* [webrick (LoadError)](https://devcoops.com/cannot-load-such-file-webrick/)
+
 
 ## 1. Install Jekyll
 ```bash

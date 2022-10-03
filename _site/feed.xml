@@ -1,51 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ryan's Technology Corner</title>
+    <title>Ryan&apos;s Technology Corner</title>
     <description>My personal blogs about technology</description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 30 Apr 2020 22:28:15 -0700</pubDate>
-    <lastBuildDate>Thu, 30 Apr 2020 22:28:15 -0700</lastBuildDate>
-    <generator>Jekyll v3.4.5</generator>
+    <link>http://0.0.0.0:4000/</link>
+    <atom:link href="http://0.0.0.0:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Mon, 03 Oct 2022 04:10:13 -0500</pubDate>
+    <lastBuildDate>Mon, 03 Oct 2022 04:10:13 -0500</lastBuildDate>
+    <generator>Jekyll v3.9.2</generator>
     
       <item>
         <title>Single Node Kubernetes Cluster</title>
-        <description>&lt;p&gt;In order to learn kubernetes, I had to install a single node kubernetes cluster on my dev machine. About 2 years ago, &lt;code class=&quot;highlighter-rouge&quot;&gt;minikube&lt;/code&gt; was the only one available. I found out the steps to install it were not easy nor simple. Besides it doesn’t have &lt;em&gt;LoadBalancer&lt;/em&gt; type of service. Therefore there was no &lt;em&gt;external IP&lt;/em&gt; (of the cluster) for accessing the service. Unfortunately, the &lt;em&gt;ingress controller&lt;/em&gt; didn’t work either.&lt;/p&gt;
+        <description>&lt;p&gt;In order to learn kubernetes, I had to install a single node kubernetes cluster on my dev machine. About 2 years ago, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;minikube&lt;/code&gt; was the only one available. I found out the steps to install it were not easy nor simple. Besides it doesn’t have &lt;em&gt;LoadBalancer&lt;/em&gt; type of service. Therefore there was no &lt;em&gt;external IP&lt;/em&gt; (of the cluster) for accessing the service. Unfortunately, the &lt;em&gt;ingress controller&lt;/em&gt; didn’t work either.&lt;/p&gt;
 
-&lt;p&gt;Luckily, a month ago I found &lt;a href=&quot;https://microk8s.io/docs/&quot;&gt;microk8s&lt;/a&gt;. It’s a &lt;code class=&quot;highlighter-rouge&quot;&gt;snap&lt;/code&gt; to install it on my dev machine running &lt;em&gt;Ubuntu 16.04.6 LTS (xenial)&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;Luckily, a month ago I found &lt;a href=&quot;https://microk8s.io/docs/&quot;&gt;microk8s&lt;/a&gt;. It’s a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;snap&lt;/code&gt; to install it on my dev machine running &lt;em&gt;Ubuntu 16.04.6 LTS (xenial)&lt;/em&gt;:&lt;/p&gt;
 
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo snap install microk8s --classic
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;snap &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;microk8s &lt;span class=&quot;nt&quot;&gt;--classic&lt;/span&gt;
 
-&lt;span class=&quot;c&quot;&gt;# Add user 'ryan'&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo usermod -a -G microk8s ryan
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo chown -f -R ryan ~/.kube
+&lt;span class=&quot;c&quot;&gt;# Add user &apos;ryan&apos;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-G&lt;/span&gt; microk8s ryan
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo chown&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; ryan ~/.kube
 
 &lt;span class=&quot;c&quot;&gt;# Check status&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo microk8s.status --wait-ready
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;microk8s.status &lt;span class=&quot;nt&quot;&gt;--wait-ready&lt;/span&gt;
 
 &lt;span class=&quot;c&quot;&gt;# Access it:&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo microk8s.kubectl get namespaces
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;microk8s.kubectl get namespaces
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;microk8s&lt;/code&gt; comes with many plugins. One of them is &lt;strong&gt;metallb&lt;/strong&gt; – the &lt;em&gt;LoadBalancer&lt;/em&gt;. Below is the list of steps to expose your service with a &lt;em&gt;LoadBalancer&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;microk8s&lt;/code&gt; comes with many plugins. One of them is &lt;strong&gt;metallb&lt;/strong&gt; – the &lt;em&gt;LoadBalancer&lt;/em&gt;. Below is the list of steps to expose your service with a &lt;em&gt;LoadBalancer&lt;/em&gt;:&lt;/p&gt;
 
 &lt;h3 id=&quot;1-add-more-ip-addresses-to-the-network-interface&quot;&gt;1. Add more IP addresses to the network interface&lt;/h3&gt;
-&lt;p&gt;My network interface is &lt;code class=&quot;highlighter-rouge&quot;&gt;eno1&lt;/code&gt;. You can check which one by using &lt;code class=&quot;highlighter-rouge&quot;&gt;ip addr&lt;/code&gt; command. I added IP address range &lt;strong&gt;192.168.1.[120-124]&lt;/strong&gt;.&lt;/p&gt;
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ip addr
+&lt;p&gt;My network interface is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;eno1&lt;/code&gt;. You can check which one by using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ip addr&lt;/code&gt; command. I added IP address range &lt;strong&gt;192.168.1.[120-124]&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ip addr
 2: eno1: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether e0:3f:49:af:89:80 brd ff:ff:ff:ff:ff:ff
+    &lt;span class=&quot;nb&quot;&gt;link&lt;/span&gt;/ether e0:3f:49:af:89:80 brd ff:ff:ff:ff:ff:ff
     inet 192.168.1.101/24 brd 192.168.1.255 scope global dynamic eno1
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo ip addr add 192.168.1.120/24 broadcast 192.168.1.255 dev eno1 label eno1:1
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo ip addr add 192.168.1.121/24 broadcast 192.168.1.255 dev eno1 label eno1:2
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo ip addr add 192.168.1.122/24 broadcast 192.168.1.255 dev eno1 label eno1:3
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo ip addr add 192.168.1.123/24 broadcast 192.168.1.255 dev eno1 label eno1:4
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo ip addr add 192.168.1.124/24 broadcast 192.168.1.255 dev eno1 label eno1:5
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;ip addr add 192.168.1.120/24 broadcast 192.168.1.255 dev eno1 label eno1:1
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;ip addr add 192.168.1.121/24 broadcast 192.168.1.255 dev eno1 label eno1:2
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;ip addr add 192.168.1.122/24 broadcast 192.168.1.255 dev eno1 label eno1:3
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;ip addr add 192.168.1.123/24 broadcast 192.168.1.255 dev eno1 label eno1:4
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;ip addr add 192.168.1.124/24 broadcast 192.168.1.255 dev eno1 label eno1:5
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ip addr
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ip addr
 2: eno1: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether e0:3f:49:af:89:80 brd ff:ff:ff:ff:ff:ff
+    &lt;span class=&quot;nb&quot;&gt;link&lt;/span&gt;/ether e0:3f:49:af:89:80 brd ff:ff:ff:ff:ff:ff
     inet 192.168.1.101/24 brd 192.168.1.255 scope global dynamic eno1
        valid_lft 66892sec preferred_lft 66892sec
     inet 192.168.1.120/24 brd 192.168.1.255 scope global secondary eno1:1
@@ -58,35 +57,32 @@
        valid_lft forever preferred_lft forever
     inet 192.168.1.124/24 brd 192.168.1.255 scope global secondary eno1:5
        valid_lft forever preferred_lft forever
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;2-enable-microk8s-metallb-add-on&quot;&gt;2. Enable microk8s &lt;strong&gt;metallb&lt;/strong&gt; add-on:&lt;/h3&gt;
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;sudo microk8s.enable metallb
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;microk8s.enable metallb
 Enabling MetalLB
 Enter the IP address range &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;e.g., 10.64.140.43-10.64.140.49&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: 192.168.1.120-192.168.1.124
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;3-test-it-by-running-nginx-with-2-replicas&quot;&gt;3. Test it by running &lt;code class=&quot;highlighter-rouge&quot;&gt;nginx&lt;/code&gt; with 2 replicas:&lt;/h3&gt;
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;microk8s.kubectl run nginx --image nginx --replicas 2
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;microk8s.kubectl expose deployment nginx &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
---port 8090 --target-port 80 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
---type LoadBalancer &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
---selector&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;nginx &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
---name nginx
+&lt;h3 id=&quot;3-test-it-by-running-nginx-with-2-replicas&quot;&gt;3. Test it by running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nginx&lt;/code&gt; with 2 replicas:&lt;/h3&gt;
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;microk8s.kubectl run nginx &lt;span class=&quot;nt&quot;&gt;--image&lt;/span&gt; nginx &lt;span class=&quot;nt&quot;&gt;--replicas&lt;/span&gt; 2
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;microk8s.kubectl expose deployment nginx &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--port&lt;/span&gt; 8090 &lt;span class=&quot;nt&quot;&gt;--target-port&lt;/span&gt; 80 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--type&lt;/span&gt; LoadBalancer &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--selector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;nginx &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; nginx
 
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;kubectl get svc/nginx
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;kubectl get svc/nginx
 NAME    TYPE           CLUSTER-IP       EXTERNAL-IP     PORT&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;S&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;          AGE
 nginx   LoadBalancer   10.152.183.245   192.168.1.120   8090:30389/TCP   4s
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Open &lt;a href=&quot;http://192.168.1.120:8090&quot;&gt;http://192.168.1.120:8090&lt;/a&gt; on the browser!&lt;/p&gt;
 
 </description>
-        <pubDate>Thu, 30 Apr 2020 20:05:19 -0700</pubDate>
-        <link>http://localhost:4000/2020/microk8s/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020/microk8s/</guid>
+        <pubDate>Thu, 30 Apr 2020 22:05:19 -0500</pubDate>
+        <link>http://0.0.0.0:4000/2020/microk8s/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2020/microk8s/</guid>
         
         <category>kubernetes k8s microk8s</category>
         
@@ -101,9 +97,9 @@ nginx   LoadBalancer   10.152.183.245   192.168.1.120   8090:30389/TCP   4s
 
 &lt;p&gt;In search for a github-like git server, I was stumbled upon &lt;a href=&quot;https://about.gitlab.com/&quot;&gt;GitLab&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 22 Sep 2017 16:34:46 -0700</pubDate>
-        <link>http://localhost:4000/2017/gitlab/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/gitlab/</guid>
+        <pubDate>Fri, 22 Sep 2017 18:34:46 -0500</pubDate>
+        <link>http://0.0.0.0:4000/2017/gitlab/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2017/gitlab/</guid>
         
         <category>git</category>
         
@@ -122,9 +118,9 @@ nginx   LoadBalancer   10.152.183.245   192.168.1.120   8090:30389/TCP   4s
         <title>Bitcoin and Ethereum</title>
         <description>&lt;p&gt;The digital currency has bitcoin and ethereum.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 22 Sep 2017 16:10:46 -0700</pubDate>
-        <link>http://localhost:4000/2017/bitcoin-and-ethereum/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/bitcoin-and-ethereum/</guid>
+        <pubDate>Fri, 22 Sep 2017 18:10:46 -0500</pubDate>
+        <link>http://0.0.0.0:4000/2017/bitcoin-and-ethereum/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2017/bitcoin-and-ethereum/</guid>
         
         <category>bitcoin</category>
         
@@ -143,24 +139,24 @@ nginx   LoadBalancer   10.152.183.245   192.168.1.120   8090:30389/TCP   4s
     
       <item>
         <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 
 &lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Tom&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &apos;Hi, Tom&apos; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].&lt;/p&gt;
 
 </description>
-        <pubDate>Mon, 10 Jul 2017 16:50:46 -0700</pubDate>
-        <link>http://localhost:4000/2017/welcome-to-jekyll/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/welcome-to-jekyll/</guid>
+        <pubDate>Mon, 10 Jul 2017 18:50:46 -0500</pubDate>
+        <link>http://0.0.0.0:4000/2017/welcome-to-jekyll/</link>
+        <guid isPermaLink="true">http://0.0.0.0:4000/2017/welcome-to-jekyll/</guid>
         
         <category>jekyll</category>
         
